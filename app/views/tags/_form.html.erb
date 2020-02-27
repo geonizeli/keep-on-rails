@@ -1,4 +1,4 @@
-<%= form_with(model: tag, local: true) do |form| %>
+<%= simple_form_for tag do |f| %>
   <% if tag.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name, class: 'label' %>
+    <%= f.label :name, class: 'label' %>
     <div class="control">
-      <%= form.text_field :name, class: 'input' %>
+      <%= f.text_field :name, class: 'input' %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :description, class: 'label' %>
-    <%= form.text_area :description, class: 'textarea' %>
+    <label class="label">Hex color</label>
+    <%= f.input :hex_color, class: 'textarea', label: false %>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Save Tag', class: 'button is-primary' %>
+    <%= f.submit 'Save Tag', class: 'button is-primary' %>
   </div>
 <% end %>

@@ -18,7 +18,7 @@
       <% unless note.tags.empty? %>
         <footer class="card-footer">
           <% note.tags.each do |tag| %>
-            <%= link_to tag.name, '#', class: 'card-footer-item' %>
+            <%= link_to tag.name, tag, class: 'card-footer-item', style: ('color: ' + tag.hex_color )%>
           <% end %>
         </footer>
       <% end %>
