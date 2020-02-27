@@ -1,8 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="#">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a>
+    <%= link_to 'Notepad', notes_path, class: 'navbar-item'%>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -14,9 +12,20 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <%= link_to 'Notes', notes_path, class: 'navbar-item'%>
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Tags
+        </a>
 
-      <%= link_to 'Tags', tags_path, class: 'navbar-item'%>
+        <div class="navbar-dropdown">
+          <% @tags.each do |tag| %>
+            <%= link_to tag.name, tag, class: 'navbar-item' %>
+          <% end %>
+          <hr class="navbar-divider">
+          <%= link_to 'Create', new_tag_path, class: 'navbar-item' %>
+          <%= link_to 'Manager', tags_path, class: 'navbar-item' %>
+        </div>
+      </div>
     </div>
 
     <p id="notice"><%= notice %></p>

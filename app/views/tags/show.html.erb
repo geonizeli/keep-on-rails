@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% unless @tag.notes.empty? %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tag.name %>
-</p>
+  <div class="notes">
+  <% @tag.notes.each do |note| %>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <%= note.title %>
+        </p>
+          <%= link_to '🖍', edit_note_path(note), class: 'card-header-icon' %>
+          <%= link_to '🗑', note, method: :delete, class: 'card-header-icon' %>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <%= note.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tag.description %>
-</p>
+<% else %>
+  <p>You don't have notes</p>
+<% end %>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<%= link_to 'New Note', new_note_path, class: 'button is-primary' %>
