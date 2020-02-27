@@ -1,29 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notes</h1>
+<% unless @notes.empty? %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="notes">
+  <% @notes.each do |note| %>
+    <div class="card">
+      <div class="card-content">
+        <p class="title">
+          <%= note.title %>
+        </p>
+        <p class="subtitle">
+          <%= note.content %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+  </div>
 
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.content %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% else %>
+  <p>You don't have notes</p>
+<% end %>
 
-<br>
-
-<%= link_to 'New Note', new_note_path %>
+<%= link_to 'New Note', new_note_path, class: 'button is-primary' %>

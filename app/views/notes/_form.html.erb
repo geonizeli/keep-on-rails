@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
+    <%= form.label :content, class: 'label' %>
+    <div class="control">
+      <%= form.rich_text_area :content, class: 'textarea' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save Note', class: 'button is-primary' %>
   </div>
 <% end %>
