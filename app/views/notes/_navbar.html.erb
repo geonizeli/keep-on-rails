@@ -11,12 +11,15 @@
     </a>
   </div>
 
+
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <%= link_to 'Notes', notes_path, class: 'navbar-item'%>
 
       <%= link_to 'Tags', tags_path, class: 'navbar-item'%>
     </div>
+
+    <p id="notice"><%= notice %></p>
 
     <div class="navbar-end">
       <div class="navbar-item">

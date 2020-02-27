@@ -1,17 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <% unless @notes.empty? %>
 
   <div class="notes">
   <% @notes.each do |note| %>
     <div class="card">
-      <div class="card-content">
-        <p class="title">
+      <header class="card-header">
+        <p class="card-header-title">
           <%= note.title %>
         </p>
-        <p class="subtitle">
+          <%= link_to '🖍', edit_note_path(note), class: 'card-header-icon' %>
+          <%= link_to '🗑', note, method: :delete, class: 'card-header-icon' %>
+      </header>
+      <div class="card-content">
+        <div class="content">
           <%= note.content %>
-        </p>
+        </div>
       </div>
     </div>
   <% end %>

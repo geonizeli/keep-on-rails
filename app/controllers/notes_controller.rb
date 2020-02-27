@@ -28,10 +28,10 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render :index, status: :created, location: @note }
+        format.html { redirect_to notes_path, notice: 'Note was successfully created.' }
+        format.json { render :show, status: :created, location: @note }
       else
-        format.html { render :index }
+        format.html { render :new }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +42,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to notes_path, notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
