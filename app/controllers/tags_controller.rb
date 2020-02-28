@@ -5,7 +5,9 @@ class TagsController < ApplicationController
     @tags = Tag.all
   end
 
-  def show; end
+  def show
+    @tags = Tag.all # navbar
+  end
 
   def new
     @tag = Tag.new

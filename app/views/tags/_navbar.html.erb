@@ -9,10 +9,26 @@
     </a>
   </div>
 
+
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <%= link_to 'Tags', tags_path, class: 'navbar-item'%>
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link current">
+          Tags
+        </a>
+
+        <div class="navbar-dropdown">
+          <% @tags.each do |tag| %>
+            <%= link_to tag.name, tag, class: 'navbar-item' %>
+          <% end %>
+          <hr class="navbar-divider">
+          <%= link_to 'Create', new_tag_path, class: 'navbar-item' %>
+          <%= link_to 'Manager', tags_path, class: 'navbar-item' %>
+        </div>
+      </div>
     </div>
+
+    <p id="notice"><%= notice %></p>
 
     <div class="navbar-end">
       <div class="navbar-item">
@@ -23,6 +39,11 @@
               <i class="fas fa-search"></i>
             </span>
           </p>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to 'New Tag', new_tag_path, class: 'button is-primary' %>
         </div>
       </div>
     </div>
