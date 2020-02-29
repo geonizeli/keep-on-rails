@@ -31,3 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Modals
+openModal = function (route) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("card-modal").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", route, true);
+  xhttp.send();var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("card-modal").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", route, true);
+  xhttp.send();
+}
+closeModal = function() {
+  document.getElementById("card-modal").innerHTML = ''
+}
