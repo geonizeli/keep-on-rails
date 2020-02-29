@@ -1,3 +1,5 @@
+<section class='modal-card-body'>
+
 <%= simple_form_for note do |f| %>
   <% if note.errors.any? %>
     <div id="error_explanation">
@@ -20,21 +22,20 @@
 
   <div class="field">
     <%= f.label :content, class: 'label' %>
-    <div class="control box">
+    <div class="control">
       <%= f.rich_text_area :content, class: 'textarea' %>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :tags, class: 'label' %>
-    <div class="box">
-      <%= f.association :tags, as: :check_boxes, label: false %>
-      <%= link_to 'Manager', tags_path, class: 'button is-small' %>
-      <%= link_to 'Create', new_tag_path, class: 'button is-small' %>
-    </div>
+    <%= f.association :tags, as: :check_boxes, label: false %>
   </div>
+</section>
 
+<footer class='modal-card-foot'>
   <div class="actions">
-    <%= f.submit 'Save Note', class: 'button is-primary' %>
+    <%= f.submit 'Save Note', class: 'button is-success' %>
   </div>
+<footer>
 <% end %>

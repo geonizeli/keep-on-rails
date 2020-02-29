@@ -38,13 +38,7 @@ openModal = function (route) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("card-modal").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", route, true);
-  xhttp.send();var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("card-modal").innerHTML = this.responseText;
+      document.getElementById("card-modal").className = 'modal is-active'
     }
   };
   xhttp.open("GET", route, true);
@@ -52,4 +46,5 @@ openModal = function (route) {
 }
 closeModal = function() {
   document.getElementById("card-modal").innerHTML = ''
+  document.getElementById('card-modal').className = 'modal'
 }
