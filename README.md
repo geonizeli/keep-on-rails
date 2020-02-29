@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple notes application.
 
-Things you may want to cover:
+What I used to do:
 
-* Ruby version
+* Ruby 2.6.5
 
-* System dependencies
+* Rails 6.0.2
 
-* Configuration
+* Postgres
 
-* Database creation
+* Simple_form
 
-* Database initialization
+* Action Text
 
-* How to run the test suite
+* Bulma.io
 
-* Services (job queues, cache servers, search engines, etc.)
+* Animate.css
 
-* Deployment instructions
+* Material Icons
 
-* ...
+* Pure Javascript
