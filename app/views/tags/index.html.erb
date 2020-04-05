@@ -1,26 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <% unless @tags.empty? %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <ul>
     <% @tags.each do |tag| %>
-      <tr>
-        <td><%= tag.name %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li><%= tag.name %></li>
+      <li><%= link_to 'Edit', edit_tag_path(tag) %></li>
+      <li><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     <% end %>
-  </tbody>
-</table>
-
+  </ul>
 <% else %>
   <p>You don't have tags</p>
 <% end %>

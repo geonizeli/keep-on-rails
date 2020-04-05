@@ -48,3 +48,18 @@ closeModal = function() {
   document.getElementById("card-modal").innerHTML = ''
   document.getElementById('card-modal').className = 'modal'
 }
+
+function pollDOM () {
+  try {
+    if ($ != undefined) {
+      $(document).on('click', '.card', function(e) {
+        e.stopPropagation()
+        openModal($(this).attr('href'))
+      })
+    }
+  } catch {
+    setTimeout(pollDOM, 300);
+  }
+}
+
+pollDOM();

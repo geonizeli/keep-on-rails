@@ -2,7 +2,6 @@
   <div class='modal-background'></div>
   <div class='modal-card animated zoomIn faster'>
     <header class='modal-card-head'>
-      <p class='modal-card-title'>Editer</p>
       <button class='delete' aria-label='close' onclick={closeModal()}></button>
     </header>
     <section class='modal-card-body'>
@@ -36,13 +35,11 @@
         <%= f.label :tags, class: 'label' %>
         <%= f.association :tags, as: :check_boxes, label: false %>
       </div>
+
+      <%= f.submit 'Save', class: 'button is-success' %>
     </section>
 
-    <footer class='modal-card-foot'>
-      <div class="actions">
-        <%= f.submit 'Save', class: 'button is-success' %>
-      </div>
-    <footer>
+    <footer class='modal-card-foot'><footer>
     <% end %>
   </div>
 </div>

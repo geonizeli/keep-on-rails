@@ -2,26 +2,19 @@
 
   <div class="notes">
   <% @notes.each do |note| %>
-    <div class="card">
+    <div class="card" href="<%= edit_note_path(note) %>">
       <header class="card-header">
         <p class="card-header-title">
           <%= note.title %>
         </p>
-          <%= link_to '🖍', edit_note_path(note), class: 'card-header-icon' %>
-          <%= link_to '🗑', note, method: :delete, class: 'card-header-icon' %>
+
+        <%= link_to '🗑', note, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-header-icon' %>
       </header>
       <div class="card-content">
         <div class="content">
           <%= note.content %>
         </div>
       </div>
-      <% unless note.tags.empty? %>
-        <footer class="card-footer">
-          <% note.tags.each do |tag| %>
-            <%= link_to tag.name, tag, class: 'card-footer-item', style: ('color: ' + tag.hex_color )%>
-          <% end %>
-        </footer>
-      <% end %>
     </div>
   <% end %>
   </div>
@@ -29,6 +22,3 @@
 <% else %>
   <p>You don't have notes</p>
 <% end %>
-
-<button class="button is-primary" onClick={openModal('notes/1/edit')}>Launch card modal</button>
-<button class="button is-primary" onClick={closeModal()}>Close card modal</button>

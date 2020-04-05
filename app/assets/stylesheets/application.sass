@@ -5,26 +5,25 @@
 @import "./animate.css";
 
 body
-  background-color: #cfcfcf
+  background-color: #ededed
   height: 100vh
 
 .container
   padding: 1rem
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
 
-.notes
-  display: flex
-  flex-wrap: wrap
-  .card
-    flex: 1 0 21%
-    margin: 0.5rem
-    border-radius: 10px
+.card
+  width: 100%
+  margin: 0.5rem
+  border-radius: 10px
+
+  &:hover
+    box-shadow: 0 0.5em 2em -0.125em rgba(10, 10, 10, 0.1)
+    cursor: pointer
 
 .current
   font-weight: 600
-
-.card
-  @media (min-width: 800px)
-    max-width: 30%
 
 .modal-card
   width: 750px

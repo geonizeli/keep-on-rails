@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_tags
 
   def index
     @tags = Tag.all
@@ -50,6 +51,10 @@ class TagsController < ApplicationController
   end
 
   private
+
+  def set_tags
+    @tags = Tag.all
+  end
 
   def set_tag
     @tag = Tag.find(params[:id])
